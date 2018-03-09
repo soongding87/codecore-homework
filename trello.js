@@ -132,5 +132,5 @@ function moveCard(boardName,fromList,toList,fromCardIndex,toCardIndex) {
 // createCard("Tester Board","To Do","playing game")
 // removeCard("Tester Board","To Do","Laundry")
 // moveCard("Tester Board","To Do","Doing",1,1)
-displayBoard("Tester Board")
+// displayBoard("Tester Board")
 // console.log(hello.hasOwnProperty("Tester Board"))

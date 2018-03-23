@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<div class="cohorts-list">
+  <% for (let cohort of cohorts) { %>
+      <div class="d-flex flex-column border m-3 p-3 ">
+        <div class="d-inline-flex p-2">
+          <a href="/cohort/<%= cohort.id %>">
+            <img class="rounded-circle m-1"src=<%=cohort.logoUrl%> width='40px' height='40px' />
+          </a>
+          <h4 class="m-1"><%= cohort.name %></h4>
+        </div>
+        <p class="m-3"><%= cohort.members %></p>
+        <div class="d-flex ">
+        <a href="/cohort/<%=cohort.id%>" class="btn btn-primary active" role="button" aria-pressed="true">Show cohort</a>
+        </div>
+      </div>
+
+  <% } %>
+</div>
+<%- include('../partials/footer') %>

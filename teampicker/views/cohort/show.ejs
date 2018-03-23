@@ -1,0 +1,71 @@
+<%- include('../partials/header') %>
+<form action="/cohort/<%= cohort.id%>" method="GET">
+<div class="d-flex flex-column border m-3 p-3 ">
+  <div class="d-inline-flex p-2">
+    <a href="/cohort/<%= cohort.id %>">
+      <img class="rounded-circle m-1"src=<%=cohort.logoUrl%> width='40px' height='40px' />
+    </a>
+    <h4 class="m-1"><%= cohort.name %></h4>
+  </div>
+  <p class="m-3"><%= cohort.members %></p>
+<div>
+<hr>
+</div>
+<h6>Method</h6>
+<div>
+<input type="radio" name="method" value="team" id="method"> Team Count </input><br/>
+<input type="radio" name="method" value="number" id="method"> Number Per Team </input>
+</div>
+</br>
+<h6>Quantity</h6>
+<input type="text" name="quantity" class="form-control" placeholder="number">
+</br>
+<button type="submit" class="btn btn-outline-primary">Assign Teams</button>
+</form>
+
+<% if(method) { %>
+  <div class='d-flex flex-column'>
+    <div class='d-flex'>
+    <h5> #&emsp;Members </h5>
+    </div>
+    <div>
+    <hr>
+    </div>
+  <%let arr = cohort.members.split(', ') %>
+  <%let tmp %>
+  <%let ranindex %>
+  <%let curindex = arr.length %>
+  <% while(curindex !== 0) { %>
+  <%  ranindex = Math.floor(Math.random() * curindex)  %>
+  <%  curindex -= 1 %>
+  <%  tmp = arr[curindex] %>
+  <%  arr[curindex]= arr[ranindex] %>
+  <%  arr[ranindex]= tmp %>
+  <% } %>
+  <% if(method==='number'){ %>
+    <% let i = 1 %>
+    <% while(arr.length >0) { %>
+      <%=i%>&emsp;<%= arr.slice(0,quantity) %>
+      <div>
+      <hr>
+      </div>
+      <%  arr.splice(0,quantity) %>
+      <% i+=1 %>
+    <%  } %>
+    <% } else {%>
+      <%  let t = arr.length/quantity+1 %>
+      <% let i = 1 %>
+      <%  while(arr.length>0){ %>
+          <%=i%>&emsp;<%= arr.slice(0,t) %>
+          <div>
+          <hr>
+          </div>
+          <%  arr.splice(0,t) %>
+          <% i+=1 %>
+        <% } %>
+    <% } %>
+  <% } %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

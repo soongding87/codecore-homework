@@ -13,14 +13,24 @@
 </div>
 <h6>Method</h6>
 <div>
-<input type="radio" name="method" value="team" id="method"> Team Count </input><br/>
-<input type="radio" name="method" value="number" id="method"> Number Per Team </input>
+<% if (method==="number") { %>
+  <input type="radio" name="method" value="number" checked="checked"> Number Per Team </input><br>
+  <input type="radio" name="method" value="team"> Team count</input>
+<%  }else if(method==="team") { %>
+  <input type="radio" name="method" value="number"> Number Per Team </input><br>
+  <input type="radio" name="method" value="team" checked="checked"> Team count </input>
+<% } else { %>
+  <input type="radio" name="method" value="number"> Number Per Team </input><br>
+  <input type="radio" name="method" value="team"> Team count </input>
+<% } %>
+<br>
+
 </div>
 </br>
 <h6>Quantity</h6>
-<input type="text" name="quantity" class="form-control" placeholder="number">
+<input type="text" value=<%=quantity%> name="quantity" class="form-control" placeholder="number"></input>
 </br>
-<button type="submit" class="btn btn-outline-primary">Assign Teams</button>
+<button type="submit" class="btn btn-outline-primary" >Assign Teams</button>
 </form>
 
 <% if(method) { %>

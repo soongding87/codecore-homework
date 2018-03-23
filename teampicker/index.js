@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cohort = require('./routes/cohort');
+const index = require('./routes/index');
 
 const app = express();
 app.set("view engine", "ejs");
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/cohort', cohort);
+app.use('/', index);
 
 const DOMAIN = "localhost";
 const PORT = 3002;

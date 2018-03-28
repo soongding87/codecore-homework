@@ -1,23 +1,3 @@
-// -------------- Tasks question---------------
-
-// class Task {
-//   constructor(taskname, assignee) {
-//     this.taskname = taskname
-//     this.assignee = assignee
-//   }
-//
-//   render() {
-//     if(this.assignee === undefined) console.log(this.taskname)
-//     else console.log(`${this.assignee}+${this.taskname}`)
-//   }
-// }
-
-// const myTask = new Task('Clean dishes');
-// const myTaskWithAssignee = new Task('Wash clothes', 'You')
-//
-// myTask.render()
-// myTaskWithAssignee.render()
-// ------------- Tasks Question end ----------------
 
 // ------------ List Question start -----------------
 // class Task {

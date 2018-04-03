@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+<% @posts.each do |post| %>
+<div class="border col p-1 m-1">
+  <h5>Title: <%= link_to post.title, post_path(post) %></h5>
+  <h6>Description: <%= post.body %></h6>
+</div>
+<br/>
+<% end %>
+</div>
+</div>

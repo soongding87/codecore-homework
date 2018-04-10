@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      @comments = @comment.post.order(created_at: :asc)
+      @comments = @post.comment.order(created_at: :desc)
       render '/posts/show'
     end
   end

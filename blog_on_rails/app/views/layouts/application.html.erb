@@ -17,9 +17,20 @@
         <a class="nav-link" href="<%= home_path %>">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_post_path %>">New Post</a>
       </li>
     </ul>
+    <% if current_user.present? %>
+    <a class="nav-link" href="<%= new_post_path %>">New Post</a>
+
+      <span>Hi, <%= current_user.name%>!</span>
+
+      |
+      <%= link_to 'Sign Out', session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign In', new_session_path %>
+      |
+      <%= link_to 'Sign Up', new_user_path %>
+    <% end %>
   </div>
 </nav>
     <%= yield %>

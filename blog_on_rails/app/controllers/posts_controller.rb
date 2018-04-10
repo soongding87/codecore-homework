@@ -16,11 +16,14 @@ class PostsController < ApplicationController
   def create
     post_params = params.require(:post).permit([:title, :body])
     @post = Post.new post_params
+    @post.user = current_user
+
     if @post.save
       redirect_to post_path(@post)
     else
       render :new
     end
+
   end
 
   def destroy

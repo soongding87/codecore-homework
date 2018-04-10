@@ -23,7 +23,7 @@
     <a class="nav-link" href="<%= new_post_path %>">New Post</a>
 
       <span>Hi, <%= current_user.name%>!</span>
-
+      <%= link_to 'Edit', edit_user_path(current_user.id) %>
       |
       <%= link_to 'Sign Out', session_path, method: :delete %>
     <% else %>

@@ -46,4 +46,22 @@ class PostsController < ApplicationController
     end
   end
 
+  private
+    def authorize_user!
+      @post = Post.find params[:id]
+      unless can?(:manage, @post)
+        flash[:alert] = 'Access Denied!'
+        redirect_to post_path(@post)
+      end
+    end
+
+    def find_post
+      @post = Post.find params[:id]
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :description)
+    end
+
+
 end

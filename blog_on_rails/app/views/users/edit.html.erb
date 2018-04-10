@@ -1,0 +1,23 @@
+
+<%= form_for @user do |f| %>
+
+<% if @user.errors.any? %>
+  <p>
+    <%= @user.errors.full_messages.join(', ') %>
+  </p>
+<% end %>
+
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+
+<%= f.submit "Update Information"%>
+<% end %>
+
+<%= link_to "Update Password", change_password_path %>
